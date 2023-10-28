@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./styles.css" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order Form</title>
+</head>
+<body>
+    <div class="container">
+        <!--TODO: Implement dark mode toggle-->
+        <div id="dark-mode-toggle">
+            <label for="dark-mode" id="dark-mode-label">Dark Mode</label>
+            <input type="checkbox" id="dark-mode">
+        </div>
+
+        <div class="table-background"></div>
+        <div class="form-class">
+            <form method="get" action="https://github.com/davidandko">
+                <div class="table-class">
+                    <table border="1" bgcolor="#8baddb" cellspacing="0px">
+                        <tr>
+                            <th colspan="2" id="table-header"><h1>David's Pizza Shop 2.0</h1></th>
+                        </tr>
+                        <tr>
+                            <td><p>Name</p></td>
+                            <td><input type="text" placeholder="Please input your name:" id="name-input"></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">Pizza Topping</td>
+                            <td>
+                                <input name="topping" type="radio">
+                                <label>
+                                    <input type="radio" name="topping"  checked>
+                                    <img src="https://static.vecteezy.com/system/resources/previews/000/552/308/original/hot-flame-fireball-vector-cartoon.jpg">
+                                  </label>
+                                  Supreme
+                                <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="radio" name="topping">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/016/143/881/original/fresh-vegetable-fruit-cauliflower-cartoon-illustration-vector.jpg">
+                                    Vegeterian
+                                  </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="radio" name="topping">
+                                    <img src="https://thumbs.dreamstime.com/b/pineapple-single-white-background-vector-graphics-55526274.jpg">
+                                    Hawaiian
+                                  </label>
+                                <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pizza Sauce</td>
+                            <td>
+                                <select>
+                                    <option>Tomato</option>
+                                    <option>Prespa Apple</option>
+                                    <option>Cucumber</option>
+                                    <option>Orange</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Optional Extras</td>
+                            <td>
+                                <label>
+                                    <input type="checkbox" name="optional">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/000/441/779/non_2x/vector-cheese-icon.jpg">
+                                    Extra Cheese
+                                  </label>
+                                <br>
+                                <label>
+                                    <input type="checkbox" name="optional">
+                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/000/343/969/small/gluten_free.jpg">
+                                    Gluten Free Base
+                                  </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" >
+                                <label id="delivery-label">Delivery Instructions:</label><br>
+                                <textarea id="delivery-input" placeholder="Enter here:"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit" method="post" >Send my Order</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>
