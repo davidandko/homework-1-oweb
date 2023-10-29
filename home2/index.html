@@ -18,75 +18,89 @@
         <div class="form-class">
             <form method="get" action="https://github.com/davidandko">
                 <div class="table-class">
-                    <table border="1" bgcolor="#8baddb" cellspacing="0px">
+                    <table bgcolor="#8baddb" cellspacing="0px">
                         <tr>
                             <th colspan="2" id="table-header"><h1>David's Pizza Shop 2.0</h1></th>
                         </tr>
                         <tr>
-                            <td><p>Name</p></td>
-                            <td><input type="text" placeholder="Please input your name:" id="name-input"></td>
+                            <td><span class="form-first-collumn">Name</span></td>
+                            <td><input type="text"placeholder="Please input your name:" id="name-input"></td>
                         </tr>
                         <tr>
-                            <td rowspan="3">Pizza Topping</td>
+                            <td rowspan="3"><span class="form-first-collumn">Pizza Topping</span></td>
                             <td>
-                                <input name="topping" type="radio">
-                                <label>
-                                    <input type="radio" name="topping"  checked>
-                                    <img src="https://static.vecteezy.com/system/resources/previews/000/552/308/original/hot-flame-fireball-vector-cartoon.jpg">
-                                  </label>
-                                  Supreme
-                                <br>
+                                <div class="topping-image-container">
+                                    <input name="topping" type="radio">
+                                    <label>
+                                        <input type="radio" name="topping"  checked>
+                                        <img src="https://static.vecteezy.com/system/resources/previews/000/552/308/original/hot-flame-fireball-vector-cartoon.jpg">
+                                    </label>
+                                    <span class="topping-selection">Supreme</span>
+                                </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label>
-                                    <input type="radio" name="topping">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/016/143/881/original/fresh-vegetable-fruit-cauliflower-cartoon-illustration-vector.jpg">
-                                    Vegeterian
-                                  </label>
-                            </td>
+                                <div class="topping-image-container">
+                                
+                                    <label>
+                                        <input type="radio" name="topping">
+                                        <img src="https://static.vecteezy.com/system/resources/previews/016/143/881/original/fresh-vegetable-fruit-cauliflower-cartoon-illustration-vector.jpg">
+                                        <span class="topping-selection">Vegeterian</span>
+                                    </label>
+                                
+                                </div>
+                            </td>    
                         </tr>
                         <tr>
                             <td>
-                                <label>
-                                    <input type="radio" name="topping">
-                                    <img src="https://thumbs.dreamstime.com/b/pineapple-single-white-background-vector-graphics-55526274.jpg">
-                                    Hawaiian
-                                  </label>
-                                <br>
+                                <div class="topping-image-container">
+                                    <label>
+                                        <input type="radio" name="topping">
+                                        <img src="https://thumbs.dreamstime.com/b/pineapple-single-white-background-vector-graphics-55526274.jpg">
+                                        <span class="topping-selection">Hawaiian</span>
+                                    </label>
+                                </div>       
+                            </td>
+                                
+                        </tr>
+                        <tr>
+                            <td><span class="form-first-collumn">Pizza Sauce</span></td>
+                            <td>
+                                    <div class="select-container">
+                                        <select>
+                                            <option>Tomato</option>
+                                            <option>Prespa Apple</option>
+                                            <option>Cucumber</option>
+                                            <option>Orange</option>
+                                        </select>
+                                    </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>Pizza Sauce</td>
-                            <td>
-                                <select>
-                                    <option>Tomato</option>
-                                    <option>Prespa Apple</option>
-                                    <option>Cucumber</option>
-                                    <option>Orange</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Optional Extras</td>
-                            <td>
-                                <label>
-                                    <input type="checkbox" name="optional">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/000/441/779/non_2x/vector-cheese-icon.jpg">
-                                    Extra Cheese
-                                  </label>
-                                <br>
-                                <label>
-                                    <input type="checkbox" name="optional">
-                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/000/343/969/small/gluten_free.jpg">
-                                    Gluten Free Base
-                                  </label>
-                            </td>
+                            
+                                <td><span class="form-first-collumn">Optional Extras</span></td>
+                                <td>
+
+                                    <div class="optional-extras-container">
+                                        <label>
+                                            <input type="checkbox" name="optional">
+                                            <img src="https://static.vecteezy.com/system/resources/previews/000/441/779/non_2x/vector-cheese-icon.jpg">
+                                            <span class="extra-selection">Extra Cheese</span>
+                                        </label>
+                                        <br>
+                                        <label>
+                                            <input type="checkbox" name="optional">
+                                            <img src="https://static.vecteezy.com/system/resources/thumbnails/000/343/969/small/gluten_free.jpg">
+                                            <span class="extra-selection">Gluten Free Base</span>
+                                        </label>
+                                    </div>
+                                </td>
+                            
                         </tr>
                         <tr>
                             <td colspan="2" >
-                                <label id="delivery-label">Delivery Instructions:</label><br>
+                                <label id="delivery-label"><span class="form-first-collumn">Delivery Instructions</span></label><br>
                                 <textarea id="delivery-input" placeholder="Enter here:"></textarea>
                             </td>
                         </tr>

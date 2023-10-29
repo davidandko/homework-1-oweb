@@ -1,5 +1,38 @@
+@keyframes button-color-gradient {
+  0%{background-color: black; color:white;}
+  100%{background-color: #5c7ea9;
+      color:white;}
+}
+#table-header:hover
+{
+  text-emphasis: none;
+  text-decoration: none;
+  
+  background-image: linear-gradient(
+    -280deg,
+    #5c7ea9 0%,
+    black 50%,
+    #5c7ea9 100%
+  );
+  
+  background-clip: border-box;
+  background-size: 50% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 5s linear infinite alternate-reverse;
+  
+}
 
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
 body{
+  color:white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 200;
   background-image: url(https://t4.ftcdn.net/jpg/03/12/34/31/360_F_312343174_1HPYRLUoQZ0ggSX5ZQvXBiwmJ4JVTVvK.jpg) ;
@@ -7,18 +40,23 @@ body{
   z-index: 0;
 }
 button {
+  border:none;
   display: block;
-  background-color: #eed98d;
+  background-color: #5c7ea9;
   padding: 1rem 2rem;
   margin: 0;
   text-decoration: none;
   line-height: 1;
   cursor: pointer;
   text-align: center;
+  border-radius: 15px;
 }
+
 button:hover,
 button:focus {
-  background: gray;
+  animation-name: button-color-gradient;
+  animation-duration: 0.7s;
+  color:white;
 }
 
 button:focus {
@@ -28,61 +66,92 @@ button:focus {
 
 table, th, td {    
   
-  border:1px dotted #913917;
+  border: 1px dotted white;
   margin-top:auto;
   margin-bottom:auto;
   margin-left: auto;  
   margin-right: auto;  
   border-collapse: collapse;    
   width: 52%;  
-  border-collapse:collapse;
   font-size: 20px; 
   z-index: 100;
   
 } 
-
+::-webkit-input-placeholder { /* WebKit browsers */
+  padding-left: 2%;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  padding-left: 2%;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  padding-left: 2%;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  padding-left: 2%;
+}
 
 form{
     position: relative;
     top:15vh;
 }
 select{
-  background-color: #eed98d;
+  background-color: #5c7ea9;
+  margin-bottom:10px;
+  margin-top:10px;
+  
+}
+.selectContainer{
+  border:1px;
+  border-radius: 25px;
 }
 label#delivery-label{
   display:block;
   text-align: center;
 }
 
+.topping-selection{
+  padding-left:10px;
+}
+.topping-image-container{
+padding-left: 10px;
 
-#table-header{
-  text-emphasis: none;
-  text-decoration: none;
+}
+.topping-image-container + img{
+  padding-left: 10px;
+ 
   
+  }
+.optional-extras-container{
+  padding-left: 10px;
 }
-#table-header:hover{
-  text-shadow: #eed98d 3px 3px;
+.extra-selection{
+  padding-left: 10px;
+
+}
+.form-first-collumn{
+  padding-left:10px;
 }
 
-/* Image input for checkbox and radio */
 
 
 input[type="text"], textarea#name-input{
-  background-color: #eed98d ;
+  border:none;
+  background-color: #5c7ea9;
   position: relative;
   overflow:hidden;
   width: 99%;
   height:100%;
   padding:none;
-  border-radius: 3%;
+  border-radius: 15px;
 }
 input[type="text"], textarea#delivery-input{
-  background-color: #eed98d ;
+  border:none;
+  background-color: #5c7ea9 ;
   position: relative;
   overflow:scroll;
   width:99%;
   height:100%;
-  border-radius: 3%;
+  border-radius: 15px;
 }
 [type=radio] { 
   position: absolute;
