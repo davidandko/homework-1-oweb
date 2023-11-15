@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oglasko - Market</title>
+    <link href="./index_styles.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="/First Mid-Term Project/Oglasko-logos/noun-ecommerce-1271154.png">
+    <script src="./index_script.js" lang="javascript" type="text/javascript"></script>
+</head>
+<body>
+    <!--NAVIGATION-->
+    <header>
+            <nav>
+                <div class="nav-container">
+                    <div class="nav-logo">
+                                <img src="../Oglasko-logos/Oglasko-logos_transparent.png">
+                    </div>
+                    <div class="nav-element">
+                        <a href="/First Mid-Term Project/home/homepage.html" >
+                                <span>Home</span>
+                        </a>
+                    </div>
+                        
+                    <div class="nav-element">
+                        <a href="/First Mid-Term Project/market/index.html">
+                                <span>Market</span>
+                        </a>
+                    </div>                        
+                    <div class="nav-element">
+                        <a href="/First Mid-Term Project/contact/contact.html">
+                            
+                            <span>Contact</span>
+                        </a>
+                    </div>
+                    <div class="nav-element">
+                        <button id="open-cart-button">
+                            <span>Open Cart</span>
+                        </button>
+                    </div>
+                </div>    
+            </nav> 
+    </header>
+    <div class="sidebar-container">
+        <div class="sidebar-block">
+
+        </div>
+    </div>
+    <!--FILTERS-->
+    <div class="filter-container">
+        <div class="filter-element">
+            <p>Filters:<p>
+        </div>
+        <div class="filter-element">
+            <select class="filter-element-select">
+                <option disabled selected value> 
+                    -- Select An Option -- 
+                </option>
+                <option id="filterByPriceAsc">
+                    Price => Ascending 
+                </option>
+                <option id="filterByPriceDsc">
+                    Price => Descending
+                </option>
+                <option id="filterByDateNewest">
+                    Date => Newest
+                </option>
+                <option id="filterByDateOldest">
+                    Date => Oldest
+                </option>
+            </select>
+        </div>
+        <div class="filter-element">
+            <p>Category:</p>
+        </div>
+        <div class="filter-element">  
+            <select class="filter-element-select-category" onchange="whatFilter(value)">
+                <option disabled selected value> 
+                    -- Select An Option -- 
+                </option>
+                <option value="0" id="vehiclesCategory">
+                    Vehicles
+                </option>
+                <option value="1" id="electronicsCategory">
+                    Electronics
+                </option>
+                <option value="2" id="furnitureCategory">
+                    Guitars
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <!--CONTENT-->
+    <div class="content-container">
+        <div class="content-element"> <!--This is a single post of an item-->
+            <div class="content-element-img-wrapper">
+                <div>
+                    <img src="/First Mid-Term Project/Oglasko-logos/PRS.png">
+                </div> <!--Here I have displaced the image as a separate wrapper-->
+                
+            </div>
+            <div class="content-element-info">
+                    
+                <!--In this div I give the info about the product and the option to like and comment-->
+                <div class="content-element-info-desc">
+                    <div class="title-container">
+                        <h3>
+                            PRS SE 24 CUSTOM
+                        </h3>
+                    </div>
+                </div>
+                <div class="content-element-info-category">
+                    Guitars
+                </div>
+                <div class="content-element-info-price">
+                    <div class="price-container">
+                        <div class="price-container-img">
+                            <img src="">
+                        </div>
+                        <div class="price-container-value">
+                            800.00$
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-reviews">
+                    <div class="reviews-container">
+                        <div class="reviews-container-img">
+                        </div>
+                        <div class="reviews-container-content">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-views">
+                    <div class="comments-likes-container">
+                        <div class="likes-container">
+                            <div class="likes-img">
+                                <img src="./likes-button.png">
+                            </div>
+                            <div class="likes-count">
+                               
+                            </div>
+                            <div class="likes-like">
+                                <button class="likes-like-button" onclick="addLike()">
+                                    Like
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comments-container"> <!--Sekoj comments-container ima 4 children-->
+                            <div class="comments-img">
+                                <img src="./comments-alt-button.png">
+                            </div>
+                            <div class="comments-count">
+                                
+                            </div>
+                            <div class="comments-open">
+                                <button id="comments-open-button">
+                                    Open Comments
+                                </button>
+                                <div class="comments-open-show">
+                                    <!--Tuka ke generiram od js za da mi izleguvaat kometarite vo div-->
+                                    <!--Mozno e ova da treba nadvor od containerot,najverojatno-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comments-input">
+                                <input type="text" placeholder="Comment" id="comments-input">
+                                <!--Tuka vo js ke zemam i ke napravam id da se zgolemuva vo nekoj counter za da zemam predvid
+                                razlicen podatok na seko input-->
+                        </div>
+                    </div>
+                </div>
+                <div class="dateAdded">
+                    <div><h3>Added On:</h3></div>
+                    <div>18.11.2023</div>
+                </div>
+            </div>
+            <div class="content-element-order">
+                <div class="order-container">
+                    <div class="order-add-to-cart">
+                        <button id="order-add-to-cart">
+                            Add To Cart <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                    <div class="order-buy-now">
+                        <button id="order-buy-now">
+                            Buy Now <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-element"> <!--This is a single post of an item-->
+            <div class="content-element-img-wrapper">
+                <div>
+                    <img src="/First Mid-Term Project/Oglasko-logos/porscheturbo.jpg">
+                </div> <!--Here I have displaced the image as a separate wrapper-->
+                
+            </div>
+            <div class="content-element-info">
+                    
+                <!--In this div I give the info about the product and the option to like and comment-->
+                <div class="content-element-info-desc">
+                    <div class="title-container">
+                        <h3>
+                            1980 Porsche 911 Turbo Air- Cooled
+                        </h3>
+                    </div>
+                </div>
+                <div class="content-element-info-category">
+                    Vehicles
+                </div>
+                <div class="content-element-info-price">
+                    <div class="price-container">
+                        <div class="price-container-img">
+                            <img src="">
+                        </div>
+                        <div class="price-container-value">
+                            100,000.00$
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-reviews">
+                    <div class="reviews-container">
+                        <div class="reviews-container-img">
+                        </div>
+                        <div class="reviews-container-content">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-views">
+                    <div class="comments-likes-container">
+                        <div class="likes-container">
+                            <div class="likes-img">
+                                <img src="./likes-button.png">
+                            </div>
+                            <div class="likes-count">
+                               
+                            </div>
+                            <div class="likes-like">
+                                <button class="likes-like-button" onclick="addLike()">
+                                    Like
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comments-container"> <!--Sekoj comments-container ima 4 children-->
+                            <div class="comments-img">
+                                <img src="./comments-alt-button.png">
+                            </div>
+                            <div class="comments-count">
+                                
+                            </div>
+                            <div class="comments-open">
+                                <button id="comments-open-button">
+                                    Open Comments
+                                </button>
+                                <div class="comments-open-show">
+                                    <!--Tuka ke generiram od js za da mi izleguvaat kometarite vo div-->
+                                    <!--Mozno e ova da treba nadvor od containerot,najverojatno-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comments-input">
+                                <input type="text" placeholder="Comment" id="comments-input">
+                                <!--Tuka vo js ke zemam i ke napravam id da se zgolemuva vo nekoj counter za da zemam predvid
+                                razlicen podatok na seko input-->
+                        </div>
+                    </div>
+                </div>
+                <div class="dateAdded">
+                    <div><h3>Added On:</h3></div>
+                    <div>18.11.2023</div>
+                </div>
+            </div>
+            <div class="content-element-order">
+                <div class="order-container">
+                    <div class="order-add-to-cart">
+                        <button id="order-add-to-cart">
+                            Add To Cart <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                    <div class="order-buy-now">
+                        <button id="order-buy-now">
+                            Buy Now <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-element"> <!--This is a single post of an item-->
+            <div class="content-element-img-wrapper">
+                <div>
+                    <img src="/First Mid-Term Project/Oglasko-logos/LP1.png">
+                </div> <!--Here I have displaced the image as a separate wrapper-->
+                
+            </div>
+            <div class="content-element-info">
+                    
+                <!--In this div I give the info about the product and the option to like and comment-->
+                <div class="content-element-info-desc">
+                    <div class="title-container">
+                        <h3>
+                            Gibson Les Paul Custom 57
+                        </h3>
+                    </div>
+                </div>
+                <div class="content-element-info-category">
+                    Guitars
+                </div>
+                <div class="content-element-info-price">
+                    <div class="price-container">
+                        <div class="price-container-img">
+                            <img src="">
+                        </div>
+                        <div class="price-container-value">
+                            10000.00$
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-reviews">
+                    <div class="reviews-container">
+                        <div class="reviews-container-img">
+                        </div>
+                        <div class="reviews-container-content">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-views">
+                    <div class="comments-likes-container">
+                        <div class="likes-container">
+                            <div class="likes-img">
+                                <img src="./likes-button.png">
+                            </div>
+                            <div class="likes-count">
+                               
+                            </div>
+                            <div class="likes-like">
+                                <button class="likes-like-button" onclick="addLike()">
+                                    Like
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comments-container"> <!--Sekoj comments-container ima 4 children-->
+                            <div class="comments-img">
+                                <img src="./comments-alt-button.png">
+                            </div>
+                            <div class="comments-count">
+                                
+                            </div>
+                            <div class="comments-open">
+                                <button id="comments-open-button">
+                                    Open Comments
+                                </button>
+                                <div class="comments-open-show">
+                                    <!--Tuka ke generiram od js za da mi izleguvaat kometarite vo div-->
+                                    <!--Mozno e ova da treba nadvor od containerot,najverojatno-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comments-input">
+                                <input type="text" placeholder="Comment" id="comments-input">
+                                <!--Tuka vo js ke zemam i ke napravam id da se zgolemuva vo nekoj counter za da zemam predvid
+                                razlicen podatok na seko input-->
+                        </div>
+                    </div>
+                </div>
+                <div class="dateAdded">
+                    <div><h3>Added On:</h3></div>
+                    <div>18.11.2023</div>
+                </div>
+            </div>
+            <div class="content-element-order">
+                <div class="order-container">
+                    <div class="order-add-to-cart">
+                        <button id="order-add-to-cart">
+                            Add To Cart <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                    <div class="order-buy-now">
+                        <button id="order-buy-now">
+                            Buy Now <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-element"> <!--This is a single post of an item-->
+            <div class="content-element-img-wrapper">
+                <div>
+                    <img src="/First Mid-Term Project/Oglasko-logos/STRAT.png">
+                </div> <!--Here I have displaced the image as a separate wrapper-->
+                
+            </div>
+            <div class="content-element-info">
+                    
+                <!--In this div I give the info about the product and the option to like and comment-->
+                <div class="content-element-info-desc">
+                    <div class="title-container">
+                        <h3>
+                            Fender Stratocaster Custom Shop Relic
+                        </h3>
+                    </div>
+                </div>
+                <div class="content-element-info-category">
+                    Guitars
+                </div>
+                <div class="content-element-info-price">
+                    <div class="price-container">
+                        <div class="price-container-img">
+                            <img src="">
+                        </div>
+                        <div class="price-container-value">
+                            8000.00$
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-reviews">
+                    <div class="reviews-container">
+                        <div class="reviews-container-img">
+                        </div>
+                        <div class="reviews-container-content">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-views">
+                    <div class="comments-likes-container">
+                        <div class="likes-container">
+                            <div class="likes-img">
+                                <img src="./likes-button.png">
+                            </div>
+                            <div class="likes-count">
+                               
+                            </div>
+                            <div class="likes-like">
+                                <button class="likes-like-button" onclick="addLike()">
+                                    Like
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comments-container"> <!--Sekoj comments-container ima 4 children-->
+                            <div class="comments-img">
+                                <img src="./comments-alt-button.png">
+                            </div>
+                            <div class="comments-count">
+                                
+                            </div>
+                            <div class="comments-open">
+                                <button id="comments-open-button">
+                                    Open Comments
+                                </button>
+                                <div class="comments-open-show">
+                                    <!--Tuka ke generiram od js za da mi izleguvaat kometarite vo div-->
+                                    <!--Mozno e ova da treba nadvor od containerot,najverojatno-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comments-input">
+                                <input type="text" placeholder="Comment" id="comments-input">
+                                <!--Tuka vo js ke zemam i ke napravam id da se zgolemuva vo nekoj counter za da zemam predvid
+                                razlicen podatok na seko input-->
+                        </div>
+                    </div>
+                </div>
+                <div class="dateAdded">
+                    <div><h3>Added On:</h3></div>
+                    <div>18.11.2023</div>
+                </div>
+            </div>
+            <div class="content-element-order">
+                <div class="order-container">
+                    <div class="order-add-to-cart">
+                        <button id="order-add-to-cart">
+                            Add To Cart <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                    <div class="order-buy-now">
+                        <button id="order-buy-now">
+                            Buy Now <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-element"> <!--This is a single post of an item-->
+            <div class="content-element-img-wrapper">
+                <div>
+                    <img src="/First Mid-Term Project/Oglasko-logos/lucidair.jpg">
+                </div> <!--Here I have displaced the image as a separate wrapper-->
+                
+            </div>
+            <div class="content-element-info">
+                    
+                <!--In this div I give the info about the product and the option to like and comment-->
+                <div class="content-element-info-desc">
+                    <div class="title-container">
+                        <h3>
+                            Lucid Air Dream Edition
+                        </h3>
+                    </div>
+                </div>
+                <div class="content-element-info-category">
+                    Vehicles
+                </div>
+                <div class="content-element-info-price">
+                    <div class="price-container">
+                        <div class="price-container-img">
+                            <img src="">
+                        </div>
+                        <div class="price-container-value">
+                            200,000.00$
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-reviews">
+                    <div class="reviews-container">
+                        <div class="reviews-container-img">
+                        </div>
+                        <div class="reviews-container-content">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-views">
+                    <div class="comments-likes-container">
+                        <div class="likes-container">
+                            <div class="likes-img">
+                                <img src="./likes-button.png">
+                            </div>
+                            <div class="likes-count">
+                               
+                            </div>
+                            <div class="likes-like">
+                                <button class="likes-like-button" onclick="addLike()">
+                                    Like
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comments-container"> <!--Sekoj comments-container ima 4 children-->
+                            <div class="comments-img">
+                                <img src="./comments-alt-button.png">
+                            </div>
+                            <div class="comments-count">
+                                
+                            </div>
+                            <div class="comments-open">
+                                <button id="comments-open-button">
+                                    Open Comments
+                                </button>
+                                <div class="comments-open-show">
+                                    <!--Tuka ke generiram od js za da mi izleguvaat kometarite vo div-->
+                                    <!--Mozno e ova da treba nadvor od containerot,najverojatno-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comments-input">
+                                <input type="text" placeholder="Comment" id="comments-input">
+                                <!--Tuka vo js ke zemam i ke napravam id da se zgolemuva vo nekoj counter za da zemam predvid
+                                razlicen podatok na seko input-->
+                        </div>
+                    </div>
+                </div>
+                <div class="dateAdded">
+                    <div><h3>Added On:</h3></div>
+                    <div>18.11.2023</div>
+                </div>
+            </div>
+            <div class="content-element-order">
+                <div class="order-container">
+                    <div class="order-add-to-cart">
+                        <button id="order-add-to-cart">
+                            Add To Cart <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                    <div class="order-buy-now">
+                        <button id="order-buy-now">
+                            Buy Now <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-element"> <!--This is a single post of an item-->
+            <div class="content-element-img-wrapper">
+                <div>
+                    <img src="/First Mid-Term Project/Oglasko-logos/esp32.png">
+                </div> <!--Here I have displaced the image as a separate wrapper-->
+                
+            </div>
+            <div class="content-element-info">
+                    
+                <!--In this div I give the info about the product and the option to like and comment-->
+                <div class="content-element-info-desc">
+                    <div class="title-container">
+                        <h3>
+                            ESP32 WiFi+Bluetooth Development Board
+                        </h3>
+                    </div>
+                </div>
+                <div class="content-element-info-category">
+                    Electronics
+                </div>
+                <div class="content-element-info-price">
+                    <div class="price-container">
+                        <div class="price-container-img">
+                            <img src="">
+                        </div>
+                        <div class="price-container-value">
+                            5.00$
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-reviews">
+                    <div class="reviews-container">
+                        <div class="reviews-container-img">
+                        </div>
+                        <div class="reviews-container-content">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-views">
+                    <div class="comments-likes-container">
+                        <div class="likes-container">
+                            <div class="likes-img">
+                                <img src="./likes-button.png">
+                            </div>
+                            <div class="likes-count">
+                               
+                            </div>
+                            <div class="likes-like">
+                                <button class="likes-like-button" onclick="addLike()">
+                                    Like
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comments-container"> <!--Sekoj comments-container ima 4 children-->
+                            <div class="comments-img">
+                                <img src="./comments-alt-button.png">
+                            </div>
+                            <div class="comments-count">
+                                
+                            </div>
+                            <div class="comments-open">
+                                <button id="comments-open-button">
+                                    Open Comments
+                                </button>
+                                <div class="comments-open-show">
+                                    <!--Tuka ke generiram od js za da mi izleguvaat kometarite vo div-->
+                                    <!--Mozno e ova da treba nadvor od containerot,najverojatno-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comments-input">
+                                <input type="text" placeholder="Comment" id="comments-input">
+                                <!--Tuka vo js ke zemam i ke napravam id da se zgolemuva vo nekoj counter za da zemam predvid
+                                razlicen podatok na seko input-->
+                        </div>
+                    </div>
+                </div>
+                <div class="dateAdded">
+                    <div><h3>Added On:</h3></div>
+                    <div>18.11.2023</div>
+                </div>
+            </div>
+            <div class="content-element-order">
+                <div class="order-container">
+                    <div class="order-add-to-cart">
+                        <button id="order-add-to-cart">
+                            Add To Cart <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                    <div class="order-buy-now">
+                        <button id="order-buy-now">
+                            Buy Now <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-element"> <!--This is a single post of an item-->
+            <div class="content-element-img-wrapper">
+                <div>
+                    <img src="/First Mid-Term Project/Oglasko-logos/raspico.jpg">
+                </div> <!--Here I have displaced the image as a separate wrapper-->
+                
+            </div>
+            <div class="content-element-info">
+                    
+                <!--In this div I give the info about the product and the option to like and comment-->
+                <div class="content-element-info-desc">
+                    <div class="title-container">
+                        <h3>
+                            Raspberry Pi Pico Development Board
+                        </h3>
+                    </div>
+                </div>
+                <div class="content-element-info-category">
+                    Electronics
+                </div>
+                <div class="content-element-info-price">
+                    <div class="price-container">
+                        <div class="price-container-img">
+                            <img src="">
+                        </div>
+                        <div class="price-container-value">
+                            3.00$
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-reviews">
+                    <div class="reviews-container">
+                        <div class="reviews-container-img">
+                        </div>
+                        <div class="reviews-container-content">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-element-info-views">
+                    <div class="comments-likes-container">
+                        <div class="likes-container">
+                            <div class="likes-img">
+                                <img src="./likes-button.png">
+                            </div>
+                            <div class="likes-count">
+                               
+                            </div>
+                            <div class="likes-like">
+                                <button class="likes-like-button" onclick="addLike()">
+                                    Like
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comments-container"> <!--Sekoj comments-container ima 4 children-->
+                            <div class="comments-img">
+                                <img src="./comments-alt-button.png">
+                            </div>
+                            <div class="comments-count">
+                                
+                            </div>
+                            <div class="comments-open">
+                                <button id="comments-open-button">
+                                    Open Comments
+                                </button>
+                                <div class="comments-open-show">
+                                    <!--Tuka ke generiram od js za da mi izleguvaat kometarite vo div-->
+                                    <!--Mozno e ova da treba nadvor od containerot,najverojatno-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comments-input">
+                                <input type="text" placeholder="Comment" id="comments-input">
+                                <!--Tuka vo js ke zemam i ke napravam id da se zgolemuva vo nekoj counter za da zemam predvid
+                                razlicen podatok na seko input-->
+                        </div>
+                    </div>
+                </div>
+                <div class="dateAdded">
+                    <div><h3>Added On:</h3></div>
+                    <div>18.11.2023</div>
+                </div>
+            </div>
+            <div class="content-element-order">
+                <div class="order-container">
+                    <div class="order-add-to-cart">
+                        <button id="order-add-to-cart">
+                            Add To Cart <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                    <div class="order-buy-now">
+                        <button id="order-buy-now">
+                            Buy Now <!--Tuka treba da dodadam da se zgolemuva id-to kako orderID da imam za da pratam za koja naracka se raboti-->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add-listing" onclick="addListing()">
+            <img src="./Untitled-3.png">
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-element">
+                
+                <p>copyright&copy davidandko</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
