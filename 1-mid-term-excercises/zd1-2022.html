@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+    <style>
+        .parent{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <h1>Guess the number between 1 and 10</h1>
+        <span><input type="number" maxlength="2" id="guess"></span>
+        <span><input type="button" value="Guess" id="guessBtn"></span>
+    </div>
+   
+
+    <script>
+        let guess= document.getElementById("guess");
+        let guessBtn=document.getElementById("guessBtn");
+
+        var random = Math.floor(1+ Math.random() * 10);
+        var counter = 0;
+
+        function check(){
+            var usrInput = parseInt(guess.value);
+            
+            if(usrInput == random){
+                alert("Congrats, you guessed right after " + counter + " tries");
+            }
+            else if(usrInput > random){
+                counter++;
+                alert("Try a smaller number");
+            }
+            else if(usrInput < random){
+                counter++;
+                alert("Try a larger number")
+            }
+            else{
+                alert("Invalid input");
+                return;
+            }
+        }
+        guessBtn.addEventListener("click",check,false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* css za animacija */
+        #container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background: yellow;
+        }
+        #animate {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="parent">
+        <p id="demo1" class="demo">Dobar den</p>
+    </div>
+
+    <div>
+        <img url="https://pixabay.com/photos/hydrangea-flower-petals-8390432/" id="slika">
+    </div>
+
+    
+    <!-- forma koja na submit povikuva funkcija -->
+    <form name="myForm" action="#" onsubmit="return validateForm()" method="post">
+        Name: <input type="text" name="fname">
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <h1>My First JavaScript Animation</h1>
+
+    <!-- html za animacija -->
+    <div id="animation">My animation will go here</div>
+    <br>
+    <div id ="container">
+        <div id ="animate">My animation will go here</div>
+    </div>
+    <br>
+    <button onclick="myMove()">Click Me</button> 
+    <!-- Vo navodnicite od onclick pishuvam javascript, vo sluchajov povikuvam funkcija -->
+    <br>
+
+    <button onclick="displayDate()">Date</button>
+    <p id="DateParagraph"></p>
+
+    <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+    </div>
+
+
+    <!-- regexp vo samiot input element od formata -->
+    <form action="#">
+        <label for="phone">Enter your phone number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"> 
+    </form>
+    
+      
+
+
+
+<!-- JavaScript DOM -->
+    
+    <script>
+        let pID = document.getElementById("demo1").innerHTML="Hello world!";
+        let pCLASS = document.getElementsByClassName("demo");
+        let pTAG = document.getElementsByTagName("p");
+
+        // za klasi koristime:
+        document.querySelectorAll("p.demo");
+
+        // za promena na atribut na html element
+        // opshto: document.getElementById(id).attribute = new value
+        document.getElementById("slika").src="pexels-skoro-photo-15101388.jpg";
+
+        
+        // funkcija povikana od form submit
+        function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;  //Kaj form namesto id koristime name, za da pristapuvame so document.forms[][]
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+
+        // menuvanje na css atribut
+        document.getElementById("p2").style.color = "blue";
+
+
+        //funkcija za animacijata
+        function myMove() {
+            let id = null;
+            const elem = document.getElementById("animate");
+            let pos = 0;
+            clearInterval(id);
+            id = setInterval(frame, 5);
+            function frame() {
+                if (pos == 350) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    elem.style.top = pos + 'px';
+                    elem.style.left = pos + 'px';
+                }
+            }
+        }
+
+        // Events: onclick, onload, onchange, onmousedown, onmouseover
+        // <input type="text" id="fname" onchange="upperCase()">
+
+
+        //addEventListener
+        // document.getElementById("dateBtn").addEventListener("click", displayDate);
+
+        function displayDate() {
+            // write Date()
+            document.getElementById("DateParagraph").innerHTML = Date();
+        }
+
+
+
+        // Navigacija so pomosh na DOM
+        // Pristap do deva elementi (na primer site html elementi smesteni vo eden <div>)
+        // Inicijalno do paragrafot "Dobar den" so id="demo1" bi pristapile vaka:
+        pDobarDen = document.getElementById("demo1");
+        // a vaka pristapuvame do sodrzhinata na tekstot vo toj paragraf
+        /* Nachin 1: */ pDobarDen = document.getElementById("demo1").innerHTML;
+        /* Nachin 2: */ pDobarDen = document.getElementById("demo1").firstChild.nodeValue;
+        // istoto mozhe da se koristi i za preku divot da pristapime do paragrafot
+        pDobarDen = document.getElementById("parent").firstChild.nodeValue;
+        // isto mozhe i vaka da se koristi istoto:
+        pDobarDen = document.getElementById("parent").childNodes[0].nodeValue;
+
+
+
+        //kreiranje elementi so DOM
+        const para = document.createElement("p");
+        const node = document.createTextNode("This is new.");
+        para.appendChild(node);
+        const element = document.getElementById("div1");
+        element.appendChild(para);
+        //mozhe da se iskoristi i insertBefore()
+
+
+
+        // remove()
+        const parent = document.getElementById("div1");
+        const child = document.getElementById("p1");
+        parent.removeChild(child);
+
+
+
+        //collections
+        const MyCollection = document.getElementsByTagName("p");
+        //ova gi zema site elementi koi imaat ime na tag p, a za pristapuvanje do niv se koristi:
+        prvParagraf = MyCollection[0];
+        dolzina = MyCollection.length;
+
+
+        //regexp vo samata form input
+        
+    </script>
+    
+</body>
+</html>
