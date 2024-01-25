@@ -18,6 +18,13 @@
         var value3 = $(this).val().toLowerCase();
         filterTable(2, value3);
       });
+      
+      $("#myTable").on('mouseenter', 'td', function() {
+        $(this).css('background-color', 'yellow');
+      }).on('mouseleave', 'td', function() {
+        $(this).css('background-color', '');
+      });
+        
 
       function filterTable(column, value) {
         $("#myTable tr").each(function() {
